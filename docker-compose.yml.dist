@@ -1,0 +1,55 @@
+version: '3.5'
+
+services:
+  smp-be:
+    container_name: smp-be
+    build:
+      context: docker/php
+      args:
+        UID: $U_ID
+        HOST: $HOST
+    environment:
+      PHP_IDE_CONFIG: serverName=Docker
+      PHP_XDEBUG_ENABLED: 1
+      XDEBUG_CONFIG: remote_host=$HOST remote_port=9005
+    volumes:
+      - ./:/app
+      - ~/.ssh/id_rsa:/home/appuser/.ssh/id_rsa
+    depends_on:
+      - smp-db
+    networks:
+      - smp-network
+
+  smp-db:
+    container_name: smp-db
+    image: mysql:8.0
+    ports:
+      - 5000:3306
+    environment:
+      MYSQL_DATABASE: smp
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
+    command: mysqld --sql_mode="NO_ENGINE_SUBSTITUTION"
+    volumes:
+      - smp-db-data:/var/lib/mysql
+    networks:
+      - smp-network
+
+  smp-rabbitmq:
+    container_name: smp-rabbitmq
+    image: rabbitmq:3-management
+    volumes:
+      - ./docker/rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - smp-network
+
+volumes:
+  smp-db-data:
+
+networks:
+  smp-network:
+    external: true
