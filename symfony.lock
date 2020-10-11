@@ -262,6 +262,12 @@
     "symfony/polyfill-php80": {
         "version": "v1.18.1"
     },
+    "symfony/property-access": {
+        "version": "v5.1.7"
+    },
+    "symfony/property-info": {
+        "version": "v5.1.7"
+    },
     "symfony/redis-messenger": {
         "version": "v5.1.5"
     },
