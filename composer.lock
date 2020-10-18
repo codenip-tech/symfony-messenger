@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f648c58144a13b47e29322451e3c7dbe",
+    "content-hash": "d356219fdb84db2932033a26f9bfeda4",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2729,16 +2729,16 @@
         },
         {
             "name": "symfony/doctrine-messenger",
-            "version": "v5.1.5",
+            "version": "v5.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/doctrine-messenger.git",
-                "reference": "ab5d02d8fbde1c653ff6baffe720194f3f70b696"
+                "reference": "d4299ea85c28ccf5ff773028523dc628071718b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/doctrine-messenger/zipball/ab5d02d8fbde1c653ff6baffe720194f3f70b696",
-                "reference": "ab5d02d8fbde1c653ff6baffe720194f3f70b696",
+                "url": "https://api.github.com/repos/symfony/doctrine-messenger/zipball/d4299ea85c28ccf5ff773028523dc628071718b2",
+                "reference": "d4299ea85c28ccf5ff773028523dc628071718b2",
                 "shasum": ""
             },
             "require": {
@@ -2799,7 +2799,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-21T12:10:32+00:00"
+            "time": "2020-09-27T14:02:37+00:00"
         },
         {
             "name": "symfony/dotenv",

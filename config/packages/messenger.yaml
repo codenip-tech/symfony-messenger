@@ -5,6 +5,7 @@ framework:
             symfony_serializer:
                 format: json
                 context: { }
+        failure_transport: failed
         transports:
             async:
                 dsn: '%env(string:MESSENGER_TRANSPORT_DSN)%'
@@ -16,6 +17,9 @@ framework:
                     queues:
                         default_queue:
                             binding_keys: [ default_queue ]
-
+            doctrine:
+                dsn: '%env(string:MESSENGER_DOCTRINE_TRANSPORT_DSN)%'
+            failed: 'doctrine://default?queue_name=failed'
         routing:
             'App\Messenger\Message\DefaultAsyncMessage': async
+            'App\Messenger\Message\DoctrineMessage': doctrine
