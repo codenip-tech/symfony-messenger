@@ -31,7 +31,5 @@ COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 RUN echo "xdebug.remote_host=${HOST}" >> /usr/local/etc/php/conf.d/xdebug.ini
 
 USER appuser
-RUN composer global require "hirak/prestissimo:^0.3" --prefer-dist --no-progress --no-suggest --optimize-autoloader --classmap-authoritative \
-	&& composer clear-cache
 
 WORKDIR /app
